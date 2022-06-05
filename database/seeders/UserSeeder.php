@@ -21,8 +21,6 @@ class UserSeeder extends Seeder
             'name' => 'rzaldivar',
             'email' => 'rzaldivar@correo.com',
             'password' => Hash::make(env('USER_PASSWORD')),
-            'token' => null,
-            'token_exp' => null,
         ]);
     }
 }
