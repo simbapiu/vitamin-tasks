@@ -18,21 +18,33 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Example</td>
-                        <td>Name example</td>
-                        <td>Category example</td>
-                        <td><input type="checkbox" id="updateStatus"><span id="taskStatus" style="padding-left: 20px;">No Realizada<span></td>
-                        <td class="btn-actions-container">
-                            <div class="btn-actions">
-                                <a href="?id=<?php echo ""; ?>"><i class="fas fa-pen fa-sm link-warning" style="padding-right: 20px;"></i></a>
-                                <a href="scripts/eliminar_encuesta.php?id=<?php echo "" ?>"><i class="fas fa-trash fa-sm link-danger"></i></a>
-                            </div>
-                            <form action="#" method="post" id="formDel">
-                                <input type="hidden" name="id" value="">
-                                <input type="hidden" name="_method" value="delete">
-                            </form>
-                        </td>
-                    </tr>
+                    @foreach($tasks as $task)
+                        <tr>
+                            <td>{{ $loop->index + 1}}</td>
+                            <td>{{ $task->name }}</td>
+                            <td>{{ $task->category }}</td>
+                            <td><input type="checkbox" id="updateStatus"><span id="taskStatus" style="padding-left: 20px;">{{ $task->status }}<span></td>
+                            <td class="btn-actions-container">
+                                <div class="btn-actions">
+                                    <button class="btn btn-round btnEdit"
+                                            data-id="{{ $task->id }}"
+                                            data-name="{{ $task->name }}"
+                                            data-category="{{ $task->category }}"
+                                            data-bs-toggle="modal" data-bs-target="#modalEditar">
+                                        <i class="fas fa-pen fa-sm link-warning"></i>
+                                    </button>
+                                    <button class="btn btn-round btnDelete" data-id="{{ $task->id }}" data-bs-toggle="modal" data-bs-target="#modalEliminar">
+                                        <i class="fas fa-trash fa-sm link-danger"></i>
+                                    </button>
+                                    <form action="{{ url('/tasks/', ['id' => $task->id]) }}" method="post" id="formDel_{{ $task->id }}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $task->id }}">
+                                        <input type="hidden" name="_method" value="delete">
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
