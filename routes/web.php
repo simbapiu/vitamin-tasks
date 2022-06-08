@@ -14,3 +14,5 @@ use App\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::redirect("/", "/api/iniciar-sesion");
