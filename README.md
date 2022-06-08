@@ -24,10 +24,16 @@
   `vitamin-tasks`
 <br>
 <br>  
-- Create the `.env` file in the project root and paste the code from the git wiki: [Vitamin Task wiki](https://github.com/simbapiu/vitamin-tasks/wiki/Env-file)
+- Create the `.env` file in the project root and paste the code from the git wiki: [VitaminTaskwiki](https://github.com/simbapiu/vitamin-tasks/wiki/Env-file)
 
 - Run migrations and seed:
   ```
   php artisan migrate
   php artisan db:seed
+  ```
+- Run the project:
+  ```
+  php artisan server
+
+  In browser go to: http://localhost:8000/
   ```
