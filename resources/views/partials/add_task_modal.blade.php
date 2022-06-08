@@ -2,10 +2,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Agregar cuestionario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tarea</h5>
             </div>
-            <form method="post" action="/admin/quizzes">
-                @csrf
+            <form id = "formData">
                 <div class="modal-body">
                     @if($message = Session::get('ErrorInsert'))
                         <div class="col-12 alert alert-danger alert-dismissable fade show" role="alert">
@@ -27,18 +26,20 @@
                             </ul>
                         </div>
                     @endif
+                    <input type="hidden" id="modalId" name="modalId" value="">
+                    <input type="hidden" id="taskId" name="taskId" value="">
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Descripción</label>
-                        <textarea class="form-control" required name="description" id="recipient-description" placeholder="Ingresa una breve descripción.">{{ old('description') }}</textarea>
+                        <label for="name" class="col-form-label">Nombre:</label>
+                        <input type="text" name="name" required class="form-control" id="createName" placeholder="Ingrese el nombre de la tarea">
                     </div>
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Periodo:</label>
-                        <input type="text" name="period" required class="form-control" id="recipient-period" placeholder="Ingrese un año. Ej. 2020" value="{{ old('period') }}">
+                        <label for="category" class="col-form-label">Categoría:</label>
+                        <input type="text" name="category" required class="form-control" id="createCategory" placeholder="Ingresa la categoria">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <button type="button" class="btn btn-primary" id="submit">Crear</button>
                 </div>
             </form>
         </div>

@@ -17,13 +17,6 @@
     <link href="{{ asset('/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-    <script type="text/javascript" src="{{ asset('/js/jquery-3.6.0.js') }}"></script>
-    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('/js/sb-admin-2.min.js') }}"></script>
-    <script src="https:////cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/34b33e3f11.js" crossorigin="anonymous"></script>
-
     <title>Lista de tareas</title>
 </head>
 
@@ -36,7 +29,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto" id="navbarElements">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Tareas</a>
                         </li>
@@ -47,8 +40,8 @@
     </header>
     <main class="flex-shrink-0">
         <div class="container">
-            <div class="row">
-                @if($message = Session::get('Listo'))
+            <div class="row mt-5 d-sm-flex align-items-center justify-content-between mb-4">
+                @if($message = Session::get('success'))
                     <div class="col-12 alert alert-success alert-dismissable fade show" role="alert">
                         <span>{{ $message }}</span>
                     </div>
@@ -60,7 +53,7 @@
             @include('partials/delete_task_modal')
             <div class="mt-5 d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0">Lista de tareas</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-xl btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalAgregar">
+                <a href="#" id="createTask" class="d-none d-sm-inline-block btn btn-xl btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalGuardar">
                     <i class="fas fa-book fa-sm text-white-50"></i> Crear tarea
                 </a>
             </div>
@@ -79,30 +72,20 @@
         </div>
     </footer>
     <!-- End of Footer -->
+    <script type="text/javascript" src="{{ asset('/js/jquery-3.6.0.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('/js/sb-admin-2.min.js') }}"></script>
+    <script src="https:////cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/34b33e3f11.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('/js/tables/datatables_es.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
     <script>
-        var table = $('#dataTable').DataTable({
-            language: {
-            "decimal": "",
-            "emptyTable": "No hay información",
-            "info": "Mostrando _START_ a _END_ de _TOTAL_",
-            "infoEmpty": "Mostrando 0 to 0 of 0",
-            "infoFiltered": "(Filtrado de _MAX_ total)",
-            "infoPostFix": "",
-            "thousands": ",",
-            "lengthMenu": "Mostrar _MENU_",
-            "loadingRecords": "Cargando...",
-            "processing": "Procesando...",
-            "search": "Buscar:",
-            "zeroRecords": "Sin resultados encontrados",
-            "paginate": {
-                "first": "Primero",
-                "last": "Ultimo",
-                "next": "Siguiente",
-                "previous": "Anterior"
-            }
-            }
-        });
+        var tasks_url = <?php echo json_encode(route('taskslist')) ?>;
+        var task = <?php echo json_encode(route('task')) ?>;
     </script>
+    <script src="{{ asset('/js/requests/ajax.js') }}"></script>
 </body>
 
 </html>

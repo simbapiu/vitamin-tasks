@@ -14,6 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/iniciar-sesion', function() {
+    return view('login');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::post('login', 'authenticate');
+});
+
+Route::get('/tasks', function() {
+    return view('tasks');
+});
+
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::controller(TaskController::class)->group(function () {
+        Route::get('/taskslist', 'list')->name('taskslist');
+        Route::get('/task/{id}/show', 'show')->name('show');
+        Route::post('/task', 'store')->name('task');
+        Route::post('/updateStatus', 'updateStatus')->name('updateStatus');
+        Route::delete('/task/{id}', 'destroy')->name('deleteTask');
+    });
 });
