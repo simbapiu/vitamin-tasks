@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +14,3 @@ use App\Http\Controllers\TaskController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::controller(TaskController::class)->group(function () {
-    Route::get('/', 'index');
-    Route::post('/store', 'store');
-    Route::put('/{id}', 'update');
-    Route::put('/{id}', 'update_status');
-    Route::delete('/{id}', 'destroy');
-
-});

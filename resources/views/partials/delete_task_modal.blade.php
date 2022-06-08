@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Eliminar cuestionario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Eliminar tarea</h5>
             </div>
             <div class="modal-body">
                 @if($message = Session::get('ErrorDelete'))
@@ -13,11 +13,12 @@
                         </ul>
                     </div>
                 @endif
-                <h5>¿Esta seguro de que desea eliminar el cuestionario?</h5>
+                <h5>¿Esta seguro de que desea eliminar la tarea?</h5>
             </div>
+            <input type="hidden" name="taskId" id="taskId" value="">
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-danger btnModalEliminar">Eliminar</button>
+                <button type="button" id="btnDelete" class="btn btn-danger btnModalEliminar">Eliminar</button>
             </div>
         </div>
     </div>
