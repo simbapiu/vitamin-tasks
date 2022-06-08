@@ -1,6 +1,9 @@
 $(document).ready(function () {
   var token = localStorage.getItem("token");
   if (token) {
+    if(window.location == "http://localhost:8000/api/iniciar-sesion") {
+      window.location = "http://localhost:8000/api/tasks";
+    }
     get_list_tasks();
     var ul = document.getElementById("navbarElements");
     var li = document.createElement("li");
@@ -14,7 +17,7 @@ $(document).ready(function () {
     a.href = "#";
     ul.appendChild(li);
   } else if (window.location != "http://localhost:8000/api/iniciar-sesion") {
-    window.location = "http://localhost:8000/api/iniciar-sesion"
+    window.location = "http://localhost:8000/api/iniciar-sesion";
   }
 
   $("body").on("click", '#login', function(e){
