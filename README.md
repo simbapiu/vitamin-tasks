@@ -37,3 +37,9 @@
 
   In browser go to: http://localhost:8000/
   ```
+
+- Get credentials to login in wiki.
+  ```
+  USER_EMAIL
+  USER_PASSWORD
+  ```
