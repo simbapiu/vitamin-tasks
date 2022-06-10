@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('/css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <title>Lista de tareas</title>
 </head>
 
@@ -61,13 +61,13 @@
     </section>
   </main>
   <!-- End of Main Content -->
-  <script type="text/javascript" src="{{ asset('/js/jquery-3.6.0.js') }}"></script>
+  <script type="text/javascript" src="{{ secure_asset('/js/jquery-3.6.0.js') }}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script>
         var tasks_url = <?php echo json_encode(route('taskslist')) ?>;
         var task = <?php echo json_encode(route('task')) ?>;
     </script>
-  <script src="{{ asset('/js/requests/ajax.js') }}"></script>
+  <script src="{{ secure_asset('/js/requests/ajax.js') }}"></script>
 </body>
 
 </html>

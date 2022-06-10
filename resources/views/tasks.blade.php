@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" />
-    <link href="{{ asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('/css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('/css/bootstrap.min.css') }}" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
-    <link href="{{ asset('/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('/css/all.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <title>Lista de tareas</title>
@@ -72,20 +72,20 @@
         </div>
     </footer>
     <!-- End of Footer -->
-    <script type="text/javascript" src="{{ asset('/js/jquery-3.6.0.js') }}"></script>
-    <script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('/js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('/js/sb-admin-2.min.js') }}"></script>
+    <script type="text/javascript" src="{{ secure_asset('/js/jquery-3.6.0.js') }}"></script>
+    <script src="{{ secure_asset('/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ secure_asset('/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ secure_asset('/js/sb-admin-2.min.js') }}"></script>
     <script src="https:////cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/34b33e3f11.js" crossorigin="anonymous"></script>
-    <script src="{{ asset('/js/tables/datatables_es.js') }}"></script>
+    <script src="{{ secure_asset('/js/tables/datatables_es.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
     <script>
         var tasks_url = <?php echo json_encode(route('taskslist')) ?>;
         var task = <?php echo json_encode(route('task')) ?>;
     </script>
-    <script src="{{ asset('/js/requests/ajax.js') }}"></script>
+    <script src="{{ secure_asset('/js/requests/ajax.js') }}"></script>
 </body>
 
 </html>
