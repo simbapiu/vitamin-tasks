@@ -15,4 +15,5 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+Route::get("/")->name("root");
 Route::redirect("/", "/api/iniciar-sesion");

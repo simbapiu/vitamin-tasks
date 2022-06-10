@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var token = localStorage.getItem("token");
+  console.log(domain_url+"/api/iniciar-sesion");
   if (token) {
     if(window.location == domain_url+"/api/iniciar-sesion") {
       window.location = domain_url+"/api/tasks";
