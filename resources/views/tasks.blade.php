@@ -84,6 +84,7 @@
     <script>
         var tasks_url = <?php echo json_encode(route('taskslist')) ?>;
         var task = <?php echo json_encode(route('task')) ?>;
+        var domain_url = <?php echo env('APP_URL') ?>;
     </script>
     <script src="{{ secure_asset('/js/requests/ajax.js') }}"></script>
 </body>
