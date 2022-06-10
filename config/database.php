@@ -16,6 +16,7 @@ return [
     */
 
     'default' => 'pgsql',
+    $DATABASE_URL = parse_url('postgres://wfnvyqytklhnbm:dd1457012a029bcb11bc5f4aecbf7eef4aa66d155367f18ab10d36edabc4c4ac@ec2-3-226-163-72.compute-1.amazonaws.com:5432/dbngk2s1tt9nj7'),
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +69,7 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
+            'database' => ltrim($DATABASE_URL["path"], "/"),
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
