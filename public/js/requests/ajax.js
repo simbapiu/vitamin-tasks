@@ -9,7 +9,7 @@ $(document).ready(function () {
   // Add https protocol to all url
   url_root.protocol = "https";
   secure_tasks_url.protocol = "https";
-  task.protocol = "https";
+  secure_task.protocol = "https";
 
 
   if (token) {
