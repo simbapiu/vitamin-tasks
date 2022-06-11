@@ -63,7 +63,7 @@ $(document).ready(function () {
       data: {
       }
     }).done(function(data){
-      if(data == { status: 'Token is Expired' }) {
+      if((data || {}).status == "Token is Expired") {
         console.log("holi");
         window.alert("La sesión ha expirado, vuelve a iniciar sesión.");
         console.log("holi2");
@@ -116,8 +116,8 @@ $(document).ready(function () {
     $.ajax({
       url: '/api/updateStatus',
       type: 'post',
-      headers: {
-        'Authorization': 'Bearer '+token
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer '+token);
       },
       data: {
         id: task_id,
@@ -156,8 +156,8 @@ $(document).ready(function () {
     $.ajax({
       url: task,
       type: "POST",
-      headers: {
-        'Authorization': 'Bearer '+token
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('Authorization', 'Bearer '+token);
       },
       data: {
         id: id,
