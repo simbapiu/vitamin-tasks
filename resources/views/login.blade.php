@@ -45,7 +45,7 @@
                       </div>
 
                       <div class="pt-1 mb-4">
-                        <button class="d-none d-sm-inline-block btn btn-lg btn-primary shadow-sm" id="login" type="button">Login</button>
+                        <button class="btn btn-primary" id="login" type="button">Login</button>
                       </div>
 
                       <a class="small text-muted" href="#">¿Olvidaste la contreseña?</a>
