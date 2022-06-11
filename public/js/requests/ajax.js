@@ -1,7 +1,17 @@
 $(document).ready(function () {
   var token = localStorage.getItem("token");
+
+  // Create URL's to can change the protocol
   var url_root = new URL(domain_url);
+  var secure_tasks_url = new URL(tasks_url);
+  var secure_task = new URL(task);
+  
+  // Add https protocol to all url
   url_root.protocol = "https";
+  secure_tasks_url.protocol = "https";
+  task.protocol = "https";
+
+
   if (token) {
     if(window.location == url_root+"api/iniciar-sesion") {
       window.location = url_root+"api/tasks";
@@ -56,7 +66,7 @@ $(document).ready(function () {
 
   function get_list_tasks()  {
     $.ajax({
-      url: tasks_url,
+      url: secure_tasks_url,
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer '+token);
       },
@@ -155,7 +165,7 @@ $(document).ready(function () {
     }
   
     $.ajax({
-      url: task,
+      url: secure_task,
       type: "POST",
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer '+token);
@@ -183,7 +193,7 @@ $(document).ready(function () {
     var id = $(this).data('id');
     
     $.ajax({
-      url: task+'/'+id+'/show',
+      url: secure_task+'/'+id+'/show',
       beforeSend: function (xhr) {
         xhr.setRequestHeader('Authorization', 'Bearer '+token);
       },
@@ -211,7 +221,7 @@ $(document).ready(function () {
     var id = $('#taskId').val();
     $.ajax(
         {
-          url: task+'/'+id,
+          url: secure_task+'/'+id,
           type: 'DELETE',
           beforeSend: function (xhr) {
             xhr.setRequestHeader('Authorization', 'Bearer '+token);
