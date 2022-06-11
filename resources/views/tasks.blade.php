@@ -53,7 +53,7 @@
             @include('partials/delete_task_modal')
             <div class="mt-5 d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0">Lista de tareas</h1>
-                <a href="#" id="createTask" class="d-none d-sm-inline-block btn btn-xl btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalGuardar">
+                <a href="#" id="createTask" class="d-none d-sm-inline-block btn btn-xl btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#modalAgregar">
                     <i class="fas fa-book fa-sm text-white-50"></i> Crear tarea
                 </a>
             </div>
