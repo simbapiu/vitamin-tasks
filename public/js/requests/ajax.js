@@ -1,9 +1,10 @@
 $(document).ready(function () {
   var token = localStorage.getItem("token");
-  console.log(domain_url+"/api/iniciar-sesion");
+  var url_root = new URL(domain_url);
+  url_root.protocol = "https";
   if (token) {
-    if(window.location == domain_url+"/api/iniciar-sesion") {
-      window.location = domain_url+"/api/tasks";
+    if(window.location == url_root+"api/iniciar-sesion") {
+      window.location = url_root+"api/tasks";
     }
     get_list_tasks();
     var ul = document.getElementById("navbarElements");
@@ -17,8 +18,8 @@ $(document).ready(function () {
     a.id = "logout";
     a.href = "#";
     ul.appendChild(li);
-  } else if (window.location != domain_url+"/api/iniciar-sesion") {
-    window.location = domain_url+"/api/iniciar-sesion";
+  } else if (window.location.href != url_root+"api/iniciar-sesion") {
+    window.location = url_root+"api/iniciar-sesion";
   }
 
   $("body").on("click", '#login', function(e){
@@ -34,7 +35,7 @@ $(document).ready(function () {
         password: password
       },
       success: function (data) {
-        window.location = domain_url+"/api/tasks";
+        window.location = url_root+"api/tasks";
         var token = data.data.token;
         localStorage.setItem("token", token);
         get_list_tasks();
@@ -50,7 +51,7 @@ $(document).ready(function () {
     e.preventDefault;
     window.alert("Salió del sistema.");
     localStorage.removeItem("token");
-    window.location = domain_url+"/api/iniciar-sesion";
+    window.location = url_root+"api/iniciar-sesion";
   });
 
   function get_list_tasks()  {
@@ -68,7 +69,7 @@ $(document).ready(function () {
         window.alert("La sesión ha expirado, vuelve a iniciar sesión.");
         console.log("holi2");
         localStorage.removeItem("token");
-        window.location = domain_url+"/api/iniciar-sesion";
+        window.location = url_root+"api/iniciar-sesion";
       } else if (data.data.length > 0) {
         fill_table(data.data);
       } else {
